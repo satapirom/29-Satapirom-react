@@ -12,7 +12,8 @@ const Admin = ({ data, setData }) => {
             lastName,
             position
         }
-        setData([...data, { ...newData, id: `No${data.length + 1}` }]);
+        setData([...data, { ...newData, id: `1${data?.length + 1}` }]);
+
 
     }
     const handleDelete = (id) => {
@@ -23,6 +24,7 @@ const Admin = ({ data, setData }) => {
         const DeleteDataAll = [];
         setData(DeleteDataAll);
     }
+    console.log(data)
 
 
 
@@ -67,7 +69,7 @@ const Admin = ({ data, setData }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((user) => (
+                    {data?.map((user) => (
                         <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.lastName}</td>
@@ -80,7 +82,7 @@ const Admin = ({ data, setData }) => {
                     ))}
                 </tbody>
             </table>
-            <button 
+            <button
                 className=' text-red-600'
                 onClick={handleDeleteAll}>Delete All</button>
         </div>

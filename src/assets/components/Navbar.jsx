@@ -1,19 +1,22 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ children }) => {
   return (
-    <div>
+    <>
+      <div>
         <nav className='border-b-2 border-gray-400 p-8'>
-            <ul className='flex justify-end p8'>
-              <li>
-                <Link to ='/Home' className='mx-4 font-bold cursor-pointer'>Home</Link>
-                <Link to ='/Owner' className='mx-4 font-bold cursor-pointer'>Owner</Link>
-              </li>
-            </ul>
+          <ul className='flex justify-end p8'>
+            <li>
+              <Link to='/' className='mx-4 font-bold cursor-pointer'>Home</Link>
+              <Link to='/Owner' className='mx-4 font-bold cursor-pointer'>Owner</Link>
+            </li>
+          </ul>
         </nav>
-        <Outlet/>
-    </div>
+        {children}
+      </div>
+    </>
+
   )
 }
 
